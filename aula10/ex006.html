@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soma</title>
+    <style>
+        #res {
+            position: absolute;
+            border: 1px solid black;
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            line-height: 100px;
+            left: 9vw;
+            background-color: brown;
+            color: white;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Soma de dois valores</h1>
+    <input type="number" name="n1" id="n1">
+    <input type="number" name="n2" id="n2">
+    <input type="submit" value="Somar" onclick="somar()">
+    <p id="res">resultado</p>
+
+    <script>
+        function somar() {
+            n1 = window.document.getElementById("n1")
+            n2 = window.document.getElementById("n2")
+            newn1 = Number(n1.value)
+            newn2 = Number(n2.value)
+            res = window.document.getElementById('res')
+            s = newn1 + newn2
+            res.innerText = s
+        }
+    </script>
+</body>
+</html>
