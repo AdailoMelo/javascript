@@ -1,18 +1,34 @@
-function passo() {
+function contar(){
     var res = document.getElementById('res')
-    var inicio = document.getElementById('inicio').value;
-    var fim = document.getElementById('fim').value;
-    var caminho = document.getElementById('caminho').value;
-    var mostrar = ''
+    var i = document.getElementById('inicio').value.toString()
+    var f = document.getElementById('fim').value.toString()
+    var p = document.getElementById('caminho').value.toString()
 
-    if (inicio.toString().length == 0 || fim.toString().length == 0 || caminho.toString().length == 0) {
-        alert('Algun valor faltando')
+    if (i.length == 0 || f.length == 0 || p.length == 0) {
+        alert('Errou seu burro')
     } else {
-        var c = inicio
-        while (c < fim) {
-            mostrar += `${c}`
-            c += caminho
+        var inicio = Number(i)
+        var fim = Number(f)
+        var passo = Number(p)
+        var mostrar = ''
+
+        if (passo <= 0) {
+            alert('caminho não pode ser 0 ou menor que 0, convertido para 1')
+            passo = 1
         }
-        res.innerHTML = mostrar
+        
+        if (inicio < fim) {
+            while (inicio <= fim) {
+                mostrar += `${inicio} => `
+                inicio += passo
+            }
+            res.innerHTML = `${mostrar} FIM`
+        } else {
+            while (fim <= inicio) {
+                mostrar += `${inicio} => `
+                inicio -= passo
+            }
+            res.innerHTML = `${mostrar} FIM`
+        }
     }
 }
